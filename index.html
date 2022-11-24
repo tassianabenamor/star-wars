@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filmes | Tassiana</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+
+    <div id="app">
+        
+        <header class="max-900">
+            <img src="https://img.icons8.com/fluency/48/000000/google-play-movies-and-tv.png"/>
+            <h1>Filmes</h1>
+            <div>
+                Minha Lista: {{myList.length}} filmes.
+            </div>
+            <img class="hamburguer" v-on:click="toggleMenu()"
+            src="https://img.icons8.com/material-rounded/40/000000/menu--v1.png"/>
+        </header>
+
+        <!--Aqui virão os filmes-->
+        <div class="container max-900">
+            
+            <div class="movie" v-for="m of movies"> 
+                <div class="title">{{ m.Title }}</div>
+                <div>{{ m.Year }}</div>
+                <div> <!-- showMovie é o método, m é o argumento-->
+                    <img v-bind:src="m.Poster">
+                </div>
+                <div class="trailer" 
+                v-if="m.Trailer" 
+                v-on:click="toggleMovie(m)">Ver trailer</div>
+                <div v-on:click="addMyList(m)">+ Lista</div>
+            </div>
+
+        </div>
+
+        <div class="menu">
+            <div class="max-900">
+                <img class="back" v-on:click="toggleMenu()"
+                src="https://img.icons8.com/color/40/000000/delete-sign--v1.png"/>
+                <div class="itens" v-for="m of menu">
+                    <img v-bind:src="m.icon">
+                    <a v-bind:href="m.url">{{m.title}}</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="m-trailer">
+            <div class="max-900">
+                <img src="https://img.icons8.com/color/40/000000/delete-sign--v1.png" class="back" v-on:click="toggleMovie()"/>
+                <h2 v-if="actualMovie">{{ actualMovie.Title }}</h2>
+                <iframe v-if="actualMovie" 
+                width="560" height="315" 
+                v-bind:src="actualMovie.Trailer"
+                title="YouTube video player" frameborder="0"></iframe>
+            </div>
+        </div>
+
+        <div class="my-list">
+            <ul>
+                <h2>Minha Lista</h2>
+                <li v-for="m of myList">{{ m.Title }}</li>
+            </ul>
+        </div>
+
+        <footer class="max-900">
+            
+            <ul>
+                <h2>Menu</h2>
+                <li v-for="i of menu" v-on:click="toggleMyList()">
+                {{ i.title }}</li>
+            </ul>
+
+            <ul>
+                <h2>Categorias</h2>
+                <li v-for="c of categories">{{c}}</li>
+            </ul>
+
+            <ul class="social">
+                <li v-if="social.instagram"><img src="https://img.icons8.com/fluency/48/000000/instagram-new.png"/></li>
+                <li v-if="social.facebook"><img src="https://img.icons8.com/color/48/000000/facebook-new.png"/></li>
+                <li v-if="social.youtube"><img src="https://img.icons8.com/color/48/000000/youtube--v1.png"/></li>
+            </ul>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+    
+</body>
+</html>

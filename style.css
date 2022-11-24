@@ -1,0 +1,165 @@
+@import "https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400&display=swap";
+/* CSSTidy 1.7.3: Fri, 13 May 2022 12:19:35 +0000 */
+* {
+  box-sizing: border-box;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 300;
+  cursor: default;
+}
+body {
+  margin: 0;
+  overflow: hidden;
+}
+#app {
+  overflow: auto;
+  height: 100vh;
+}
+.max-900 {
+  max-width: 900px;
+  margin: auto;
+  position: relative;
+}
+header {
+  display: flex;
+  align-items: center;
+}
+header > * {
+  margin-right: 10px;
+}
+header h1 {
+  flex-grow: 1;
+  flex-shrink: 0;
+  display: inline;
+}
+header .hamburguer {
+  cursor: pointer;
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.movie {
+  width: 182px;
+  margin: 10px;
+  align-self: stretch;
+  position: relative;
+}
+.movie > div {
+  margin-bottom: 5px;
+}
+.movie .title {
+  height: 40px;
+  font-weight: 400;
+}
+.movie .trailer {
+  font-size: 10px;
+  font-weight: 300;
+  padding: 10px;
+  background: rgba(252, 163, 17, 0.95);
+  color: #fff;
+  border-radius: 5px;
+  text-transform: uppercase;
+  text-align: center;
+  cursor: pointer;
+  position: absolute;
+  bottom: 10px;
+  right: 6px;
+}
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 14px;
+  border-top: 1px solid lightgray;
+}
+footer ul {
+  padding: 0;
+  margin: 20px;
+}
+footer li,
+footer a {
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+footer h2 {
+  margin: 0 0 20px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+}
+footer .social {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  flex-grow: 1;
+}
+.social li {
+  margin-left: 20px;
+}
+li {
+  list-style: none;
+}
+.back {
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+}
+.menu.show,
+.m-trailer.show,
+.my-list.show {
+  display: block;
+}
+.menu,
+.m-trailer,
+.my-list {
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(20, 33, 61, 0.95);
+  z-index: 999;
+  padding: 10px;
+  display: none;
+  color: #fff;
+}
+.m-trailer .back {
+  margin: auto;
+  cursor: pointer;
+}
+.menu .itens {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  cursor: pointer;
+}
+.menu .itens:hover {
+  color: #FCA311;
+}
+.menu .itens:hover img {
+  transform: scale(1.2) rotate(-10deg);
+}
+.menu .itens:hover a {
+  transform: scale(1.05);
+}
+.itens > * {
+  margin: 10px;  
+}
+.itens a {
+  text-decoration: none; 
+  color: inherit;
+}
+.menu .itens > img {
+  transition: transform 0.12s ease-out;
+}
+.my-list ul {
+  margin: auto;
+  padding: 0;
+  width: 50%;
+}
+.my-list li {
+  margin: 20px 0px;
+  font-size: 18px;
+}
